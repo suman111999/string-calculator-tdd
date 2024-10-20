@@ -1,7 +1,14 @@
+function handleBackslashes(input) {
+    return input
+        .replace(/\\n/g, '\n')   // Convert \\n to newline \n
+        .replace(/\\t/g, '\t')   // Convert \\t to tab \t
+        .replace(/\\\\/g, '\\'); // Convert \\ to a single backslash \
+}
 export function add(numbers) {
     //if numbers string is empty then return 0
     if (numbers === '') return 0;
-
+    // to handle escaped characters (like \n, \t, \\) duplication when we input in textarea
+    numbers = handleBackslashes(numbers);
     //custom delimiter or  /,|\n/
     // numbers string would look like "//[delimiter]\n[numbers…]"
     let delimiter = /,|\n/;
