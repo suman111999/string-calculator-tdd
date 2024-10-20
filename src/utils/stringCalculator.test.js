@@ -33,5 +33,5 @@ test('should return sum of numbers with custom delimiter', () => {
 
 //negative numbers  
 test('should throw an error when there is any negative number', () => {
-    expect(() => add('1,-9,-3,4')).toThrow('negative numbers not allowed: -2,-4');
+    expect(() => add('1,-9,-3,4')).toThrow('Negative numbers not allowed: -9, -3');
 })

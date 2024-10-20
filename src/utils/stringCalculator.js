@@ -17,7 +17,7 @@ export function add(numbers) {
     //handleing negative number
     const negativeNums = numsArr.filter(num => num < 0)
     if (negativeNums?.length > 0) {
-        throw new Error(`negatives not allowed: ${negativeNums.join(', ')}`);
+        throw new Error(`Negative numbers not allowed: ${negativeNums.join(', ')}`);
     }
 
     return numsArr.reduce((total, num) => total + num, 0);
