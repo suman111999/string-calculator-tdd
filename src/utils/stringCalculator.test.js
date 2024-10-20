@@ -27,3 +27,6 @@ test('should return sum of numbers with new line as delimiter', () => {
 })
 
 //custom delimiter
+test('should return sum of numbers with custom delimiter', () => {
+    expect(add('//;\n1;2;3')).toBe(6);
+})
