@@ -20,3 +20,10 @@ test('should return sum of two numbers', () => {
 test('should return sum of multiple numbers', () => {
     expect(add('1,2,3,4,5')).toBe(15);
 })
+
+//include new line as delimiters
+test('should return sum of numbers with new line as delimiter', () => {
+    expect(add('4\n2,5')).toBe(11);
+})
+
+//custom delimiter
