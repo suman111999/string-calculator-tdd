@@ -14,5 +14,11 @@ export function add(numbers) {
     }
 
     const numsArr = stringNum.split(delimiter).map(Number);
+    //handleing negative number
+    const negativeNums = numsArr.filter(num => num < 0)
+    if (negativeNums?.length > 0) {
+        throw new Error(`negatives not allowed: ${negativeNums.join(', ')}`);
+    }
+
     return numsArr.reduce((total, num) => total + num, 0);
 };
