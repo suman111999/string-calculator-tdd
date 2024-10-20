@@ -1,3 +1,4 @@
 export function add(numbers) {
-    // implementation goes here
+    //if numbers string is empty then return 0
+    if (numbers === '') return 0;
 }
