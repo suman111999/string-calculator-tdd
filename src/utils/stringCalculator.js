@@ -20,12 +20,30 @@ export function add(numbers) {
         stringNum = numbers.substring(delimeterLastIndex + 1);
     }
 
-    const numsArr = stringNum.split(delimiter).map(Number);
-    //handleing negative number
-    const negativeNums = numsArr.filter(num => num < 0)
-    if (negativeNums?.length > 0) {
-        throw new Error(`Negative numbers not allowed: ${negativeNums.join(', ')}`);
-    }
+    let numsArr = stringNum.split(delimiter).map(Number);
 
+    //handleing negative number
+    checkNegativeAndThrowError(numsArr)
+    numsArr = ignore1000OrGreaterThan1000(numsArr);
     return numsArr.reduce((total, num) => total + num, 0);
 };
+
+function checkNegativeAndThrowError(stringNums) {
+    const negativeNums = stringNums.filter(num => num < 0)
+    if (negativeNums?.length > 0) {
+        throw new Error(`Negative numbers not allowed: ${negativeNums.join(', ')}`);
+    } else {
+        return;
+    }
+};
+
+function ignore1000OrGreaterThan1000(stringNums) {
+    console.log(stringNums)
+    for (let i = 0; i < stringNums.length; i++) {
+        if (stringNums[i] >= 1000) {
+            stringNums[i] = 0;
+        }
+    }
+    return stringNums;
+};
+
